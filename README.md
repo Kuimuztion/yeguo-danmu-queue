@@ -48,6 +48,8 @@
 
 **已有编译好的程序时，不必安装 GCC：** 保留 `build\queue_overlay.exe` 和同目录的 `build\zlib1.dll`，同时保留项目根目录的 `config.json`、`static/` 等文件，然后从项目根目录运行 `start.bat`。不要只拷走 exe，也不要直接在 `build/` 目录内以错误的工作目录运行。当前源码仓库通过 `.gitignore` 排除了 `build/`，所以单纯克隆仓库的人不会得到预编译 exe，仍需自行编译；预编译发布包若另行提供，应包含 exe、DLL、配置和静态资源。
 
+本机另有不纳入 Git 的 `releases/` 运行包目录：其中的 `queue_overlay.exe`、`zlib1.dll`、`config.json`、`static/` 和 `start.bat` 可一起复制到其他 Windows 11 电脑。复制后修改该目录内的 `config.json`，双击该目录内的 `start.bat` 即可运行，无需安装 GCC。不要只复制 exe；运行产生的 `data/` 会保存在该目录下。
+
 若页面没有打开，可以手动访问：
 
 | 用途 | 地址 |
