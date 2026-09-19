@@ -1,0 +1,10 @@
+{
+  "room_id": 1881592284,
+  "keyword": "排队",
+  "priority_gifts": [
+    "粉丝团灯牌"
+  ],
+  "port": 8765,
+  "font_size": 36,
+  "max_rows": 50
+}

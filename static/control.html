@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>椰果排队弹幕工具 · 控制台</title>
+    <link rel="stylesheet" href="/static/control.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">BILIBILI LIVE · OBS QUEUE</p>
+          <h1>椰果排队弹幕工具</h1>
+        </div>
+        <div id="connection" class="connection"><i></i><span>正在连接</span></div>
+      </header>
+
+      <section class="stats">
+        <article><span>直播间</span><strong id="roomId">—</strong></article>
+        <article><span>当前排队</span><strong id="queueCount">0</strong></article>
+        <article><span>待用灯牌</span><strong id="pendingCount">0</strong></article>
+        <article><span>监听口令</span><strong id="keyword">排队</strong></article>
+      </section>
+
+      <div class="grid">
+        <section class="panel queue-panel">
+          <div class="panel-head">
+            <div><p class="label">LIVE LIST</p><h2>当前队列</h2></div>
+            <button id="refresh" class="ghost" type="button">刷新</button>
+          </div>
+          <div id="queueList" class="queue-list"><p class="empty">暂无排队用户</p></div>
+        </section>
+
+        <aside class="stack">
+          <section class="panel command-panel">
+            <p class="label">COMMAND</p>
+            <h2>快捷操作</h2>
+            <form id="commandForm">
+              <label for="command">输入控制命令</label>
+              <div class="command-row">
+                <input id="command" autocomplete="off" placeholder="例如 add-你好-3 或 del-3">
+                <button type="submit">执行</button>
+              </div>
+            </form>
+            <div class="quick-actions">
+              <button data-fill="add-">＋ 手动加人</button>
+              <button data-fill="del-">－ 删除名次</button>
+              <button data-command="list">查看列表</button>
+              <button data-command="clear" class="danger">清空队列</button>
+            </div>
+            <div id="result" class="result" role="status">等待命令</div>
+          </section>
+
+          <section class="panel settings-panel">
+            <p class="label">APPEARANCE</p>
+            <div class="setting-title"><h2>OBS 字体大小</h2><output id="fontOutput">36px</output></div>
+            <input id="fontSize" type="range" min="12" max="160" step="1" value="36">
+            <p class="hint">拖动后会立即同步到 OBS 浏览器源。</p>
+          </section>
+
+          <section class="panel test-panel">
+            <p class="label">OFFLINE TEST</p>
+            <h2>未开播测试</h2>
+            <label for="testName">模拟用户名</label>
+            <input id="testName" value="我是hello" autocomplete="off">
+            <div class="test-actions">
+              <button id="testQueue" type="button">发送“排队”</button>
+              <button id="testGift" type="button" class="gift">送粉丝团灯牌</button>
+            </div>
+          </section>
+
+          <section class="panel pending-panel">
+            <p class="label">PENDING PRIORITY</p>
+            <h2>先送灯牌的用户</h2>
+            <div id="pendingList" class="pending-list"><p class="empty small">暂无记录</p></div>
+          </section>
+        </aside>
+      </div>
+
+      <footer>
+        OBS 透明队列地址：<code id="overlayUrl"></code>
+      </footer>
+    </main>
+    <script src="/static/control.js"></script>
+  </body>
+</html>
