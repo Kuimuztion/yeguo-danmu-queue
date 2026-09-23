@@ -106,7 +106,7 @@ static void handle_client(SOCKET client, AppState *state) {
         const char *name = path + 8;
         bool safe = strcmp(name, "control.css") == 0 || strcmp(name, "control.js") == 0 ||
                     strcmp(name, "overlay.css") == 0 || strcmp(name, "overlay.js") == 0 ||
-                    strcmp(name, "assets/chisaki-queue-frame.png") == 0;
+                    strcmp(name, "assets/shorekeeper-queue-frame.png") == 0;
         if (safe) { char file[600]; snprintf(file, sizeof(file), "static/%s", name); serve_file(client, file); }
         else send_response(client, 404, "Not Found", "text/plain", "Not Found", 9);
     } else send_response(client, 404, "Not Found", "text/plain", "Not Found", 9);
